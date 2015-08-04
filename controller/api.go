@@ -18,7 +18,7 @@ func Index(r render.Render) {
 }
 
 
-func Upload(req *http.Request,r render.Render) {
+func UploadRecords(req *http.Request,r render.Render) {
     if req.Method == "GET"{
         r.HTML(200, "upload", "")
         return

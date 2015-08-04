@@ -7,6 +7,6 @@ import (
 
 func Router(m *martini.ClassicMartini) {
 	m.Get("/", controller.Index)
-    m.Get("/upload_record", controller.Upload)
-    m.Post("/upload_record", controller.Upload)
+    m.Get("/upload_records", controller.UploadRecords)
+    m.Post("/upload_records", controller.UploadRecords)
 }
