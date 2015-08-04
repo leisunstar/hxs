@@ -1,33 +1,21 @@
-开始答题<br>
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>题号</th>
-        <th>类型</th>
-        <th>题目</th>
-        <th>选项</th>
-    </tr>
-    </thead>
-    <tbody>
-
-    {{range $key, $val := .list}}
-    <tr>
-        <th scope="row">{{$val.Id}}</th>
-        {{if eq $val.ExamType 0}}
-        <td>填空题:</td>
-        <td>{{$val.Title}}</td>
-        <td>@mdo</td>
-        {{else if eq $val.ExamType 1}}
-        <td>选择题:</td>
-        <td>{{$val.Title}}</td>
-        <td>{{$val.Content}}</td>
-        {{else if eq $val.ExamType 2}}
-        <td>判断题:</td>
-        <td>{{$val.Title}}</td>
-        <td>{{$val.Content}}</td>
-        {{end}}
-    </tr>
-    {{end}}
-
-    </tbody>
-</table>
+<div class="jumbotron">
+    <h3>Hello, world!</h3>
+    <h3>输入格式如下：<br>
+        填空｜宦兴盛叫什么名字()|宦兴盛<br>
+        选择｜宦兴盛叫什么名字()|A.宦兴盛 B.宦兴胜 C.换换 D.不换|A<br>
+        判断｜宦兴盛是叫宦兴盛么|T<br>
+    </h3>
+</div>
+<form class="form-horizontal" action="" method="post" >
+    <div class="form-group">
+        <label for="text" class="col-sm-2 control-label">请输入题目</label>
+        <div class="col-sm-10">
+            <textarea id="text" class="form-control" name="titles" rows="3"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">提交</button>
+        </div>
+    </div>
+</form>

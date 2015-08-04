@@ -58,8 +58,8 @@ func (this *ExamTitle) DeleteExamTitle(id int) (err error) {
 	return
 }
 
-func (this *ExamTitle) GetList() (examTitleLists []*model.ExamTitle,err error) {
-    o := orm.NewOrm()
-    _, err = o.Raw("SELECT * FROM \"exam_title\";").QueryRows(&examTitleLists)
-    return
+func (this *ExamTitle) GetList() (examTitleLists []*model.ExamTitle, err error) {
+	o := orm.NewOrm()
+	_, err = o.Raw("SELECT * FROM \"exam_title\";").QueryRows(&examTitleLists)
+	return
 }

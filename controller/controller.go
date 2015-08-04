@@ -5,13 +5,13 @@ import (
 )
 
 var (
-    appService  *service.App
+	appService *service.App
 )
 
 func Init() (err error) {
 	//初始化自己
 	//初始化service
-    appService = &service.App{}
+	appService = &service.App{}
 
 	err = service.Init()
 	if err != nil {

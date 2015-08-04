@@ -1,0 +1,51 @@
+开始答题<br>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>题目</th>
+        <th>答案</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{range $key, $val := .blankList}}
+    <tr>
+        <td>{{$val.Title}}</td>
+        <td>{{$val.Answer}}</td>
+    </tr>
+    {{end}}
+    </tbody>
+</table>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>题目</th>
+        <th>选项</th>
+        <th>答案</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{range $key, $val := .choiceList}}
+    <tr>
+        <td>{{$val.Title}}</td>
+        <td>{{$val.Content}}</td>
+        <td>{{$val.Answer}}</td>
+    </tr>
+    {{end}}
+    </tbody>
+</table>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>题目</th>
+        <th>答案</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{range $key, $val := .judgeList}}
+    <tr>
+        <td>{{$val.Title}}</td>
+        <td>{{$val.Answer}}</td>
+    </tr>
+    {{end}}
+    </tbody>
+</table>
