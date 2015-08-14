@@ -6,6 +6,7 @@ import (
 	"hxs/cache"
 	"hxs/common"
 	"hxs/model"
+	"strconv"
 	"strings"
 )
 
@@ -72,4 +73,31 @@ func (this *App) SaveTitles(titles string) (err error) {
 		}
 	}
 	return nil
+}
+
+func (this *App) CheckRecords(records string) (name string, list []*model.ExamTitleRecord, err error) {
+	recordsList := strings.Split(records, ";")
+	for _, v := range recordsList {
+		tmp := strings.Split(v, "^")
+		if len(tmp) != 2 {
+			continue
+		}
+		if tmp[0] == "user_name" {
+			name = tmp[1]
+		} else {
+			id, _ := strconv.Atoi(tmp[0])
+			value := tmp[1]
+			examTitle := &model.ExamTitle{}
+			examTitleRecord := &model.ExamTitleRecord{}
+			examTitle, err = examTitleDao.GetExamTitleById(id)
+			if err != nil {
+				logs.Error("examTitleDao.GetExamTitleById err %v", err)
+				return
+			}
+			examTitleRecord.ExamTitle = *examTitle
+			examTitleRecord.RecordAnswer = value
+			list = append(list, examTitleRecord)
+		}
+	}
+	return
 }

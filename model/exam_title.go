@@ -7,3 +7,8 @@ type ExamTitle struct {
 	Content  string `orm:"column(content)"`
 	Answer   string `orm:"column(answer)"`
 }
+
+type ExamTitleRecord struct {
+	ExamTitle
+	RecordAnswer string
+}
