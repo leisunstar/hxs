@@ -1,0 +1,81 @@
+开始答题<br>
+
+<div class="form-group">
+    <input type="text" class="form-control" id="exampleInputName2" name="user_name" value="{{.name}}" readonly>
+</div>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>填空题</th>
+        <th>标准答案</th>
+        <th>您的答案</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{range $key, $val := .list}}
+        {{if eq $val.ExamType 0}}
+        <tr>
+            <td>{{$val.Title}}</td>
+            <td><input type="text" class="form-control" value="{{$val.Answer}}" readonly></td>
+            <td>
+                <div class="{{if eq $val.Answer $val.RecordAnswer}}has-success{{else}}has-error{{end}}">
+                    <input type="text" class="form-control" value="{{$val.RecordAnswer}}" readonly>
+                </div>
+            </td>
+        </tr>
+        {{end}}
+    {{end}}
+    </tbody>
+</table>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>选择题</th>
+        <th>选项</th>
+        <th>标准答案</th>
+        <th>您的答案</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {{range $key, $val := .list}}
+        {{if eq $val.ExamType 1}}
+            <tr>
+                <td>{{$val.Title}}</td>
+                <td>{{$val.Content}}</td>
+                <td><input type="text" class="form-control" value="{{$val.Answer}}" readonly></td>
+                <td>
+                    <div class="{{if eq $val.Answer $val.RecordAnswer}}has-success{{else}}has-error{{end}}">
+                        <input type="text" class="form-control" value="{{$val.RecordAnswer}}" readonly>
+                    </div>
+                </td>
+            </tr>
+        {{end}}
+    {{end}}
+    </tbody>
+</table>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>判断题</th>
+        <th>标准答案</th>
+        <th>您的答案</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{range $key, $val := .list}}
+        {{if eq $val.ExamType 2}}
+    <tr>
+        <td>{{$val.Title}}</td>
+        <td><input type="text" class="form-control" value="{{$val.Answer}}" readonly></td>
+        <td>
+            <div class="{{if eq $val.Answer $val.RecordAnswer}}has-success{{else}}has-error{{end}}">
+                <input type="text" class="form-control" value="{{$val.RecordAnswer}}" readonly>
+            </div>
+        </td>
+    </tr>
+        {{end}}
+    {{end}}
+    </tbody>
+</table>
